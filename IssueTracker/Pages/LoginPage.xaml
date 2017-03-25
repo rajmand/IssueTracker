@@ -14,11 +14,11 @@
                 <StackPanel x:Name="Form" Orientation="Vertical" Width="270" Height="200" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                         <Label Content="Username:" Target="{Binding ElementName=TextUsername}" Width="80" VerticalAlignment="Center"/>
-                        <TextBox x:Name="TextUsername" Width="190" TabIndex="1" Text="rajmund.kovacs" />
+                        <TextBox x:Name="TextUsername" Width="190" TabIndex="1" Text="TextUsername" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Password:" Target="{Binding ElementName=TextPassword}" Width="80" VerticalAlignment="Center"/>
-                        <PasswordBox x:Name="TextPassword" Width="190" TabIndex="2" Password="Pass1234"/>
+                        <PasswordBox x:Name="TextPassword" Width="190" TabIndex="2" Password="Password"/>
                     </StackPanel>
                     <Button x:Name="btnLogin" HorizontalAlignment="Right"  Click="LoginButton_Click" Margin="0,10,0,0" TabIndex="3"  />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
