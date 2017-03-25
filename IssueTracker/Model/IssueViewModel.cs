@@ -1,0 +1,16 @@
+﻿using System.Windows.Media;
+
+namespace IssueTracker.Model
+{
+    //TODO: rename to viewmodel name
+    public class IssueViewModel
+    {
+        public string Id { get; set; }
+        public string Project { get; set; }
+        public string Summary { get; set; }
+        public string Status { get; set; }
+        public string Worklog { get; set; }
+        public bool CheckedItem { get; set; }
+        public Geometry IconData { get; set; }
+    }
+}
