@@ -20,6 +20,12 @@ namespace IssueTracker.Pages
             _dataProvider = ((App) Application.Current).DataProvider;
             InitializeComponent();
             btnLogin.Content = Login.ToString();
+            Loaded += window_Loaded;
+        }
+
+        private void window_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextUsername.Focus();
         }
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
