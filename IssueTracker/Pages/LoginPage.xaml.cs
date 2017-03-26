@@ -44,6 +44,8 @@ namespace IssueTracker.Pages
 
         private async System.Threading.Tasks.Task LoginMethod()
         {
+            if (!InputValidation()) return;
+
             ProgressRingLogin.IsActive = true;
             BlockInputs();
 
@@ -69,6 +71,17 @@ namespace IssueTracker.Pages
             {
                 ProgressRingLogin.IsActive = false;
             }
+        }
+
+        private bool InputValidation()
+        {
+            if (TextUsername.Text == string.Empty || TextPassword.Password == string.Empty)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                ModernDialog.ShowMessage("Please fill username and password", "Login fail!", button);
+                return false;
+            }
+            return true;
         }
 
         private void EnableInputs()
