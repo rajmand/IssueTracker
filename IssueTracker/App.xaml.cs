@@ -1,5 +1,6 @@
 ﻿using IssueTracker.DataServices;
 using IssueTracker.Interfaces;
+using IssueTracker.Properties;
 using System.Windows;
 
 namespace IssueTracker
@@ -13,8 +14,7 @@ namespace IssueTracker
 
         public App()
         {
-            //TODO:Get the URL from configuration
-            DataProvider = new DataProvider("https://cellum.atlassian.net");
+            DataProvider = new DataProvider(Settings.Default.JiraUrl);
         }
     }
 }
