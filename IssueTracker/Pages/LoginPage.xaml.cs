@@ -19,7 +19,7 @@ namespace IssueTracker.Pages
         {
             _dataProvider = ((App) Application.Current).DataProvider;
             InitializeComponent();
-            btnLogin.Content = Login.ToString();
+            BtnLogin.Content = Login.ToString();
             Loaded += window_Loaded;
         }
 
@@ -30,7 +30,7 @@ namespace IssueTracker.Pages
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((string) btnLogin.Content == Login.ToString())
+            if ((string) BtnLogin.Content == Login.ToString())
             {
                 await LoginMethod();
             }
@@ -38,7 +38,7 @@ namespace IssueTracker.Pages
             {
                 _dataProvider.Logout();
                 EnableInputs();
-                btnLogin.Content = Login.ToString();
+                BtnLogin.Content = Login.ToString();
             }
         }
 
@@ -54,8 +54,8 @@ namespace IssueTracker.Pages
                 ModernDialog.ShowMessage("You can see your issues at issue window", "Login success!", button);
 
                 BlockInputs();
-                btnLogin.Content = Logout.ToString();
-                btnLogin.IsEnabled = true;
+                BtnLogin.Content = Logout.ToString();
+                BtnLogin.IsEnabled = true;
 
                 NavigationCommands.GoToPage.Execute("/Pages/IssuesPage.xaml#refresh", this);
             }
@@ -73,14 +73,14 @@ namespace IssueTracker.Pages
 
         private void EnableInputs()
         {
-            btnLogin.IsEnabled = true;
+            BtnLogin.IsEnabled = true;
             TextUsername.IsEnabled = true;
             TextPassword.IsEnabled = true;
         }
 
         private void BlockInputs()
         {
-            btnLogin.IsEnabled = false;
+            BtnLogin.IsEnabled = false;
             TextUsername.IsEnabled = false;
             TextPassword.IsEnabled = false;
         }

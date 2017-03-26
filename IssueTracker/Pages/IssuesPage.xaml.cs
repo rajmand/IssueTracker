@@ -54,8 +54,6 @@ namespace IssueTracker.Pages
                 });
             }
             return issues;
-            
-
         }
         
         private async void RefreshButton_Click(object sender, RoutedEventArgs e)
@@ -172,7 +170,8 @@ namespace IssueTracker.Pages
                 _worklogs.Delete((item as IssueTrackedViewModel).Id);
             }
 
-            await RefreshMethod();
+            if (_dataProvider.Logon)
+                await RefreshMethod();
         }
 
         private bool TrackedTimeHandle()
