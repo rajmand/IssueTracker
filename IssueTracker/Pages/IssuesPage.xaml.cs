@@ -144,6 +144,8 @@ namespace IssueTracker.Pages
             {
                 if ((!(item is IssueTrackedViewModel)) || !(item as IssueTrackedViewModel).Selected) continue;
                 //TODO: upload minutes to Jira
+                var jiraIssue = item as IssueTrackedViewModel;
+                _dataProvider.AddWorkLog(jiraIssue.Id,jiraIssue.TrackedMinutes);
                 _worklogs.Delete((item as IssueTrackedViewModel).Id);
                 message += (item as IssueTrackedViewModel).Id + " ";
             }

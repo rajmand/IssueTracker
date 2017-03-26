@@ -12,5 +12,6 @@ namespace IssueTracker.Interfaces
         Task CreateJiraClient(string username, string password);
         Task GetIssues();
         void Logout();
+        void AddWorkLog(string jiraId, double minutes);
     }
 }

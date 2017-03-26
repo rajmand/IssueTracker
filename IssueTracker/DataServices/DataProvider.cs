@@ -17,14 +17,14 @@ namespace IssueTracker.DataServices
         private string _userPassword;
         private readonly string _jiraUrl;
         private Jira _jira;
-        public List<Model.IssueViewModel> Issues { get; private set; }
+        public List<IssueViewModel> Issues { get; private set; }
         public bool Logon { get; private set; }
         public JiraUser JiraUser { get; private set; }
 
         public DataProvider(string url)
         {
             Logon = false;
-            Issues = new List<Model.IssueViewModel>();
+            Issues = new List<IssueViewModel>();
             _jiraUrl = url;
         }
 
@@ -56,7 +56,7 @@ namespace IssueTracker.DataServices
         {
             try
             {
-                Issues = new List<Model.IssueViewModel>();
+                Issues = new List<IssueViewModel>();
 
                 if (_jira == null)
                 {
@@ -74,7 +74,7 @@ namespace IssueTracker.DataServices
                     var summary = issue.Summary;
                     var status = issue.Status.Name;
                     var worklog = issue.GetTimeTrackingDataAsync().Result.TimeSpent;
-                    Issues.Add(new Model.IssueViewModel
+                    Issues.Add(new IssueViewModel
                     {
                         Project = project,
                         Id = id,
@@ -83,7 +83,6 @@ namespace IssueTracker.DataServices
                         Worklog = worklog
                     });
                 }
-                
 
             }
             catch (Exception e)
@@ -100,6 +99,16 @@ namespace IssueTracker.DataServices
                                   where i.Assignee == Username
                                   orderby i.Updated
                                   select i;
+        }
+
+        public async void AddWorkLog(string jiraId, double minutes)
+        {
+            var issue = await _jira.Issues.GetIssueAsync(jiraId);
+            await issue.AddWorklogAsync(WorkLogStrategy(minutes));
+        }
+        private static string WorkLogStrategy(double minutes)
+        {
+            return minutes + "m";
         }
     }
 }
