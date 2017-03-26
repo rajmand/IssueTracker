@@ -1,5 +1,4 @@
 ﻿using FirstFloor.ModernUI.Windows.Controls;
-using System.Windows;
 
 namespace IssueTracker
 {
@@ -11,7 +10,6 @@ namespace IssueTracker
         public MainWindow()
         {
             InitializeComponent();
-            this.Topmost = ((App)Application.Current).AlwaysOnTop;
         }
     }
 }

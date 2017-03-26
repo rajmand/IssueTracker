@@ -1,7 +1,6 @@
 ﻿using FirstFloor.ModernUI.Presentation;
 using System.ComponentModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Media;
 
 namespace IssueTracker.Pages.Settings
@@ -127,7 +126,7 @@ namespace IssueTracker.Pages.Settings
                     this.selectedFontSize = value;
                     OnPropertyChanged("SelectedFontSize");
 
-                    AppearanceManager.Current.FontSize = value == FontLarge ? FontSize.Large : FontSize.Small;
+                    AppearanceManager.Current.FontSize = value == FontLarge ? FontSize.Large : FontSize.Small; 
                 }
             }
         }
@@ -146,14 +145,13 @@ namespace IssueTracker.Pages.Settings
                 }
             }
         }
-
-        //TODO: add property change to main window, Use property change event
+        
         public bool AlwaysOnTop
         {
-            get { return ((App) Application.Current).AlwaysOnTop; }
+            get { return ((MainWindow)System.Windows.Application.Current.MainWindow).Topmost; }
             set
             {
-                ((App) Application.Current).AlwaysOnTop = value;
+                ((MainWindow) System.Windows.Application.Current.MainWindow).Topmost = value;
             }
         }
     }
