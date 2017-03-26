@@ -5,5 +5,14 @@
     <Setting Name="JiraUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://cellum.atlassian.net</Value>
     </Setting>
+    <Setting Name="ChosenAccent" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#00000000</Value>
+    </Setting>
+    <Setting Name="ChosenTheme" Type="System.Uri" Scope="User">
+      <Value Profile="(Default)">"/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml"</Value>
+    </Setting>
+    <Setting Name="ChosenFontSize" Type="FirstFloor.ModernUI.Presentation.FontSize" Scope="User">
+      <Value Profile="(Default)">Large</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -34,5 +34,41 @@ namespace IssueTracker.Properties {
                 this["JiraUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#00000000")]
+        public global::System.Windows.Media.Color ChosenAccent {
+            get {
+                return ((global::System.Windows.Media.Color)(this["ChosenAccent"]));
+            }
+            set {
+                this["ChosenAccent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml\"")]
+        public global::System.Uri ChosenTheme {
+            get {
+                return ((global::System.Uri)(this["ChosenTheme"]));
+            }
+            set {
+                this["ChosenTheme"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Large")]
+        public global::FirstFloor.ModernUI.Presentation.FontSize ChosenFontSize {
+            get {
+                return ((global::FirstFloor.ModernUI.Presentation.FontSize)(this["ChosenFontSize"]));
+            }
+            set {
+                this["ChosenFontSize"] = value;
+            }
+        }
     }
 }
