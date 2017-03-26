@@ -2,7 +2,6 @@
 
 namespace IssueTracker.Model
 {
-    //TODO: rename to viewmodel name
     public class IssueViewModel
     {
         public string Id { get; set; }

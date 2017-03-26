@@ -7,7 +7,6 @@ using static IssueTracker.Model.ButtonContents;
 
 namespace IssueTracker.Pages
 {
-    //TODO: after login show logged on
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
