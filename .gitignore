@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/rsa-key-20170327_priv.ppk
+/rsa-key-20170327_pub
