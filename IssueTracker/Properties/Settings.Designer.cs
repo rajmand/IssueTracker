@@ -49,18 +49,6 @@ namespace IssueTracker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml\"")]
-        public global::System.Uri ChosenTheme {
-            get {
-                return ((global::System.Uri)(this["ChosenTheme"]));
-            }
-            set {
-                this["ChosenTheme"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Large")]
         public global::FirstFloor.ModernUI.Presentation.FontSize ChosenFontSize {
             get {
@@ -68,6 +56,18 @@ namespace IssueTracker.Properties {
             }
             set {
                 this["ChosenFontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/FirstFloor.ModernUI;component/Assets/ModernUI.Dark.xaml")]
+        public global::System.Uri ChosenTheme {
+            get {
+                return ((global::System.Uri)(this["ChosenTheme"]));
+            }
+            set {
+                this["ChosenTheme"] = value;
             }
         }
     }
