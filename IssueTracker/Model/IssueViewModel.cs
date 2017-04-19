@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows.Input;
+using System.Windows.Media;
 
 namespace IssueTracker.Model
 {
@@ -11,5 +12,6 @@ namespace IssueTracker.Model
         public string Worklog { get; set; }
         public bool CheckedItem { get; set; }
         public Geometry IconData { get; set; }
-    }
+        public ICommand DataGridDoubleClick { get; set; }
+}
 }

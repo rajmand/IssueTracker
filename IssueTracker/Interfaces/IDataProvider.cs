@@ -13,5 +13,6 @@ namespace IssueTracker.Interfaces
         Task GetIssues();
         void Logout();
         void AddWorkLog(string jiraId, double minutes);
+        void OpenInBrowserIssueById(string jiraId);
     }
 }

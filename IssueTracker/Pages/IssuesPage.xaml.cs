@@ -1,31 +1,32 @@
-﻿using FirstFloor.ModernUI.Windows;
-using FirstFloor.ModernUI.Windows.Controls;
-using FirstFloor.ModernUI.Windows.Navigation;
-using IssueTracker.Extensions;
-using IssueTracker.Interfaces;
-using IssueTracker.Model;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using FirstFloor.ModernUI.Windows;
+using FirstFloor.ModernUI.Windows.Controls;
+using FirstFloor.ModernUI.Windows.Navigation;
+using IssueTracker.Extensions;
+using IssueTracker.Interfaces;
+using IssueTracker.Model;
 
 namespace IssueTracker.Pages
 {
     /// <summary>
     /// Interaction logic for IssuesPage.xaml
     /// </summary>
-    public partial class IssuesPage : UserControl, IContent
+    public partial class IssuesPage : IContent
     {
         private readonly IDataProvider _dataProvider;
         private ObservableCollection<IssueViewModel> _issueDataCollection;
         private readonly Geometry _pauseStreamGeometry = Geometry.Parse("F1 M 26.9167,23.75L 33.25,23.75L 33.25,52.25L 26.9167,52.25L 26.9167,23.75 Z M 42.75,23.75L 49.0833,23.75L 49.0833,52.25L 42.75,52.25L 42.75,23.75 Z ");
         private readonly Geometry _playStreamGeometry = Geometry.Parse("F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z");
         private readonly PolyStopwatch _worklogs = new PolyStopwatch();
-
+        
         /// <summary>
         /// Constructor. Get and set the data provider 
         /// </summary>
@@ -34,8 +35,23 @@ namespace IssueTracker.Pages
             InitializeComponent();
             _dataProvider = ((App)Application.Current).DataProvider;
         }
+        
 
-        //TODO: refactor to dataprovider
+        //TODO: Move to extension
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            IInputElement element = e.MouseDevice.DirectlyOver;
+            if (!((element as FrameworkElement)?.Parent is DataGridCell)) return;
+            var grid = sender as DataGrid;
+            if (grid?.SelectedItems == null || grid.SelectedItems.Count != 1) return;
+            var rowView = grid.SelectedItem as IssueViewModel;
+            if (rowView?.Id != null)
+            {
+                _dataProvider.OpenInBrowserIssueById(rowView.Id);
+            }
+        }
+
+        //TODO: re-factor to data-provider
         private ObservableCollection<IssueViewModel> GetData()
         {
             var issues = new ObservableCollection<IssueViewModel>();
@@ -81,7 +97,7 @@ namespace IssueTracker.Pages
             ProgressBarIssuesChange.IsIndeterminate = false;
             MessageToUi("Issues refresd - " + DateTime.Now.ToString(CultureInfo.InvariantCulture));
         }
-        
+
         private void Play_Click(object sender, RoutedEventArgs e)
         {
             if (!_dataProvider.Logon)

@@ -21,11 +21,12 @@
                 <StackPanel>
                     <ProgressBar x:Name="ProgressBarIssuesChange" Minimum="0" Maximum="1" Height="16" IsIndeterminate="False" Margin="0"  Background="{x:Null}" BorderBrush="{x:Null}" />
                 </StackPanel>
-                
-                <DataGrid x:Name="IssueDataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" >
+
+                <DataGrid x:Name="IssueDataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True"  
+                          MouseDoubleClick="DataGrid_MouseDoubleClick">
                     <DataGrid.Columns>
                         <mui:DataGridTextColumn Binding="{Binding (model:IssueViewModel.Project)}" Header="Project"/>
-                        <mui:DataGridTextColumn Binding="{Binding (model:IssueViewModel.Id)}" Header="ID"/>
+                        <mui:DataGridTextColumn Binding="{Binding (model:IssueViewModel.Id)}" Header="ID" />
                         <mui:DataGridTextColumn Binding="{Binding (model:IssueViewModel.Summary)}" Header="Summary">
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
@@ -44,7 +45,6 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
-
                 </DataGrid>
             </StackPanel>
         </ScrollViewer>

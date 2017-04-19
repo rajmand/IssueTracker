@@ -39,7 +39,6 @@ namespace IssueTracker.DataServices
             {
                 Logon = true;
             }
-
         }
 
         public void Logout()
@@ -106,6 +105,12 @@ namespace IssueTracker.DataServices
             var issue = await _jira.Issues.GetIssueAsync(jiraId);
             await issue.AddWorklogAsync(WorkLogStrategy(minutes));
         }
+
+        public void OpenInBrowserIssueById(string jiraId)
+        {
+            System.Diagnostics.Process.Start(_jiraUrl + "/browse/" + jiraId);
+        }
+
         private static string WorkLogStrategy(double minutes)
         {
             return minutes + "m";
